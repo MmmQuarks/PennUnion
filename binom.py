@@ -5,9 +5,9 @@ import pandas as pd
 import streamlit as st
 
 
-votes_cast = st.number_input("votes cast?")
-yes = st.number_input("yes votes?")
-no = st.number_input("no votes?")
+votes_cast = int( st.number_input("votes cast?") )
+yes = int( st.number_input("yes votes?"))
+no = int( st.number_input("no votes?"))
 votes_counted = yes + no
 votes_to_count = votes_cast - votes_counted
 
