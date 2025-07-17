@@ -33,11 +33,14 @@ if votes_cast > 0 and yes > 0 & no >= 0:
     ax.set_xlabel('Total Yes Votes')
     ax.set_ylabel('Probability')
     
-    victory = round(0.5 * votes_cast +1)
-    victory_prob = np.round(
-        df.loc[ df.yes_votes >= victory, 'prob'].sum(), 2
-    )
+    # victory = round(0.5 * votes_cast +1)
+    # victory_prob = np.round(
+    #     df.loc[ df.yes_votes >= victory, 'prob'].sum(), 2
+    # )
     
-    ax.set_title('Victory Probability = {}'.format(victory_prob))
+    # ax.set_title('Victory Probability = {}'.format(victory_prob))
+    ax.set_title('Maximum Likelihood Estimate of Yes Votes')
+
+    st.text( "Max Prob = " + str(df.loc[df.prob.argmax(), 'yes_votes']) + " yes votes")
     
     st.pyplot(fig)
